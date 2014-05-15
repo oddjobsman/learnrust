@@ -19,6 +19,7 @@ fn main() {
 	println!("pair is {}", pair);
 
 	println!("the reversed pair is {}", reverse(pair));
+	println!("the reversed pair using destructuring is {}", compact_reverse(pair));
 
 	// to create one element tuples, the comma is required to tell them
 	// apart from a literal surrounded by parantheses
@@ -31,5 +32,12 @@ fn reverse(pair: (int, bool)) -> (bool, int) {
 	// `let` can be used to bind the members of the tuple variable
 	let (integer, boolean) = pair;
 
+	(boolean, integer)
+}
+
+// similar to reverse() function, bur using pattern matching for destructuring tuple 
+fn compact_reverse((integer, boolean): (int, bool)) -> (bool, int) {
+	// the integer and boolean pattern match the incoming tuple's values
+	// which we return as a reversed tuple
 	(boolean, integer)
 }
